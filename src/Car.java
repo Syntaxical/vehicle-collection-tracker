@@ -20,7 +20,11 @@ public class Car extends Vehicle{
 
     //a car is required to tow a plane out of its garage. this consumes one fuel but returns the car to the garage
     //instantly
-    public void towPlane(){
-        setCurrentFuel(getCurrentFuel() - 1);
+    public boolean towPlane(){
+        boolean towSuccessful = false;
+        if(this.getCurrentFuel() > 0) {
+            this.setCurrentFuel(this.getCurrentFuel() - 1);
+        }
+        return towSuccessful;
     }
 }

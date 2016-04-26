@@ -7,7 +7,7 @@ import java.util.List;
 public class Dock extends Garage {
     //Docks: Every evening if a boat is over a week without cleaning it will be raised out of the water and cleaned.
     //docks need to have a collection of boats
-    private static List<Boat> boatList;
+    private List<Boat> boatList;
 
     //build the dock
     Dock(){
@@ -19,15 +19,10 @@ public class Dock extends Garage {
     public List<Boat> getBoatList(){ return this.boatList; }
 
     //gotta be able to clean those boats if it's been over a week
-    public void cleanBoat(Boat b){
-        //reset the timer
-        b.setDaysSinceCleaning(0);
-    }
+    public void cleanBoat(Boat b){ b.cleanBoat(); }
 
     //override the garage buyVehicle method
-    public void buyVehicle(Boat b){
-        boatList.add(b);
-    }
+    public void buyBoat(Boat b){ boatList.add(b); }
 
     //check to see if the garage is empty
     public boolean isEmpty(){

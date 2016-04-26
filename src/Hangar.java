@@ -23,13 +23,11 @@ public class Hangar extends Garage{
     public List<Plane> getPlaneList(){ return this.planeList; }
 
     //override the garage buyVehicle method
-    public void buyVehicle(Plane p){
+    public void buyPlane(Plane p){
         planeList.add(p);
     }
 
-    public void flyPlane(Car c){
-        c.setCurrentFuel(c.getCurrentFuel() - 1);
-    }
+    public void flyPlane(Car c){ c.towPlane(); }
 
     //check to see if the garage is empty
     public boolean isEmpty(){

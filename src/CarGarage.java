@@ -11,7 +11,7 @@ public class CarGarage extends Garage {
     */
     //car garages need to be able to decide if they can paint a car, and they need to to have a collection of cars
     private boolean paintSprayer;
-    private static List<Car> carList;
+    private List<Car> carList;
 
     //build the car garage
     CarGarage(boolean paintSprayer){
@@ -21,13 +21,11 @@ public class CarGarage extends Garage {
     }
 
     //accessors
-    public boolean getPaintSprayer(){ return this.paintSprayer; }
+    public boolean canPaintcars(){ return this.paintSprayer; }
     public List<Car> getCarList(){ return this.carList; }
 
     //override the garage buyVehicle method
-    public void buyVehicle(Car c){
-        carList.add(c);
-    }
+    public void buyCar(Car c){ carList.add(c); }
 
     //check to see if the garage is empty
     public boolean isEmpty(){

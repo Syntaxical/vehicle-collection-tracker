@@ -15,5 +15,8 @@ public class Boat extends Vehicle {
     public int getDaysSinceCleaning(){ return this.daysSinceCleaning; }
 
     //mutators
-    public void setDaysSinceCleaning(int daysSinceCleaning){ this.daysSinceCleaning = daysSinceCleaning; }
+    public void cleanBoat(){ this.daysSinceCleaning = 0; }
+
+    //any time a day passes we need to call this method for each boat in our garage
+    public void boatDayPasses(){ this.daysSinceCleaning++; }
 }

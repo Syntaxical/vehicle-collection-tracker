@@ -25,7 +25,6 @@ public class Vehicle {
     public boolean isOut(){ return this.isOut; }
 
     //mutators
-    public void setFuelCapacity(int fuelCapacity){ this.fuelCapacity = fuelCapacity; }
     public void setCurrentFuel(int currentFuel){ this.currentFuel = currentFuel; }
 
     //we need to be able to remove a vehicle

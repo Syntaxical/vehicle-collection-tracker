@@ -7,6 +7,7 @@ public class Menu {
     //global first time variable
     private static boolean first = true;
     private static MenuMethods mm = new MenuMethods();
+    private static UserInput ui = new UserInput();
 
     //this class contains the menu itself as well as the logic to allow a user to select a menu method
     public static void buildMenu(){
@@ -36,29 +37,13 @@ public class Menu {
 
         //create an input variable
         Scanner userInput = new Scanner(System.in);
-        int input = 0;
+        int iInput = 0;
         String sInput;
-        while(input != 9){
+        while(iInput != 9){
             sInput = userInput.nextLine();
-            while(!(isInt(sInput))){
-                System.out.println("Please only input numeric values.");
-                System.out.print("Selection>");
-                sInput = userInput.nextLine();
-            }
-            input = Integer.parseInt(sInput);
-            while(input < 1 || input > 9){
-                System.out.println("Please select a number between 1 and 9.");
-                System.out.print("Selection>");
-                sInput = userInput.nextLine();
-                while(!(isInt(sInput))){
-                    System.out.println("Please only input numeric values.");
-                    System.out.print("Selection>");
-                    sInput = userInput.nextLine();
-                }
-                input = Integer.parseInt(sInput);
-            }
+            iInput = ui.testIntWithinRange(sInput, 1, 9);
 
-            switch(input){
+            switch(iInput){
                 case 1:
                     //build garage
                     mm.buildGarage();
@@ -125,15 +110,5 @@ public class Menu {
                     break;
             }
         }
-    }
-
-    public static boolean isInt(String s){
-        boolean checkResult = true;
-        try{
-            Integer.parseInt(s);
-        } catch(Exception e){
-            checkResult = false;
-        }
-        return checkResult;
     }
 }

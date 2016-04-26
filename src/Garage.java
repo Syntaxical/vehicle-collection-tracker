@@ -21,6 +21,7 @@ public class Garage {
 
     //accessors
     public GarageType getGarageType(){ return this.type; }
+    public List<Vehicle> getVehicleList(){ return this.vehicleList; }
 
     //we need to be able to add vehicles to any garage
     public void buyVehicle(Vehicle v){
@@ -28,14 +29,17 @@ public class Garage {
     }
 
     //every night we gotta be able to refuel the vehicle
-    public void refuel(Vehicle v){
+    public int refuel(Vehicle v){
+        int fuelNeeded;
+        fuelNeeded = v.getFuelCapacity() - v.getCurrentFuel();
         v.setCurrentFuel(v.getFuelCapacity());
+        return fuelNeeded;
     }
 
     //check to see if the garage is empty
     public boolean isEmpty(){
         boolean empty = false;
-        if(vehicleList.size() == 0){
+        if(this.vehicleList.size() == 0){
             empty = true;
         }
         return empty;

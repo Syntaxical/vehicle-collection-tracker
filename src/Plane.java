@@ -17,7 +17,7 @@ public class Plane extends Vehicle {
     public boolean isGrounded(){ return this.grounded; }
 
     //planes require a check every time they go out to see if they need to be cleaned
-    public void cleaningRequired(){
+    public boolean cleaningRequired(){
         //make an object so that we can create a random number between 1 and 4
         Random r = new Random();
         int max = 4, min = 1;
@@ -27,7 +27,8 @@ public class Plane extends Vehicle {
 
         //if the random number is 1 we gotta clean her up, otherwise we just return the default value of false
         if(random == 1){
-            grounded = true;
+            this.grounded = true;
         }
+        return this.grounded;
     }
 }
